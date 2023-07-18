@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-
+from django.contrib.auth import get_user_model
 
 from .forms import UserForm, ItemForm
 from .models import User, Item
@@ -23,27 +23,7 @@ def login_view(request):
             return render(request, 'login.html', {'error_message': error_message})
     return render(request, 'login.html')
 
-def register_view(request):
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
 
-            # Verificar se o usuário já existe
-            if User.objects.filter(username=username).exists():
-                error_message = 'O nome de usuário já está em uso.'
-                return render(request, 'admin_dashboard.html', {'error_message': error_message})
-
-            # Cadastrar o novo usuário
-            user = User.objects.create(username=username, password=password)
-            user.save()
-
-            success_message = 'Usuário cadastrado com sucesso!'
-            return render(request, 'admin_dashboard.html', {'success_message': success_message})
-
-    # Se o formulário não for válido ou for uma solicitação GET, renderize a página de admin_dashboard.html
-    return render(request, 'admin_dashboard.html')
 
 def home_view(request):
     user_id = request.session.get('user_id')
@@ -79,8 +59,32 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 def admin_dashboard(request):
-    # Aqui você pode adicionar qualquer lógica específica que deseja para a página de administração
-    return render(request, 'admin_dashboard.html')
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+            # Verificar se o usuário já existe
+            if User.objects.filter(username=username).exists():
+                error_message = 'O nome de usuário já está em uso.'
+                return render(request, 'admin_dashboard.html', {'form': form, 'error_message': error_message})
+
+            # Cadastrar o novo usuário usando o gerenciador de autenticação padrão
+            user = get_user_model().objects.create_user(username=username, password=password)
+            user.save()
+
+            success_message = 'Usuário cadastrado com sucesso!'
+            return render(request, 'admin_dashboard.html', {'form': form, 'success_message': success_message})
+
+    else:
+        # Se não for uma solicitação de POST, exiba a página de administração com o formulário de cadastro de usuário vazio
+        form = UserForm()
+
+    # Obtenha a lista de pessoas cadastradas
+    users = User.objects.all()
+
+    return render(request, 'admin_dashboard.html', {'form': form, 'users': users})
 
 def create_order_view(request):
     # Implemente a lógica para criar um novo pedido aqui
