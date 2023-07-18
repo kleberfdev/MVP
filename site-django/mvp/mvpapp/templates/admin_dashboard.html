@@ -12,13 +12,10 @@
     <!-- Abas de navegação -->
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" id="tab-cadastrar-usuario" data-toggle="tab" href="#cadastrar-usuario">Cadastrar Novo Usuário</a>
+            <a class="nav-link active" id="tab-cadastrar-usuario" data-toggle="tab" href="#cadastrar-usuario">Usuários</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="tab-criar-pedido" data-toggle="tab" href="#criar-pedido">Criar Novo Pedido</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="tab-mostrar-cadastrados" data-toggle="tab" href="#mostrar-cadastrados">Mostrar Pessoas Cadastradas</a>
         </li>
 
         <!-- Adicione outras abas aqui, se necessário -->
@@ -29,14 +26,15 @@
         <!-- Conteúdo da aba "Cadastrar Novo Usuário" -->
         <div id="cadastrar-usuario" class="tab-pane fade show active">
             <h3>Cadastro de Usuário</h3>
+            <!-- Formulário de cadastro de usuário -->
             <form method="post">
                 {% csrf_token %}
                 <label for="username">Nome de Usuário:</label>
                 <input type="text" id="username" name="username" required><br><br>
-    
+        
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="password" required><br><br>
-    
+        
                 <input type="submit" value="Cadastrar">
             </form>
             {% if error_message %}
@@ -45,12 +43,19 @@
             {% if success_message %}
                 <p style="color: green;">{{ success_message }}</p>
             {% endif %}
-            <h3>Mostrar Pessoas Cadastradas</h3>
-                <ul>
-                    {% for user in users %}
-                        <li>{{ user.username }}</li>
-                    {% endfor %}
-                </ul>
+        
+            <!-- Usuários Cadastrados -->
+            <h3>Usuários Cadastrados</h3>
+            <table>
+                <tr>
+                    <th>Nome de Usuário</th>
+                </tr>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
     
         <!-- Conteúdo da aba "Criar Novo Pedido" -->
@@ -63,14 +68,6 @@
             </form>
         </div>
     
-        <!-- Conteúdo da aba "Mostrar Pessoas Cadastradas" -->
-        <div id="mostrar-cadastrados" class="tab-pane fade">
-            <h3>Mostrar Pessoas Cadastradas</h3>
-            <ul>
-                {% for user in users %}
-                    <li>{{ user.username }}</li>
-                {% endfor %}
-            </ul>
         </div>
         <!-- Adicione conteúdo para outras abas aqui, se necessário -->
     </div>

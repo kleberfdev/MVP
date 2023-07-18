@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-from django.contrib.auth import get_user_model
 
 from .forms import UserForm, ItemForm
 from .models import User, Item
@@ -65,13 +64,13 @@ def admin_dashboard(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
 
-            # Verificar se o usuário já existe
+            # Verificar se o usuário já existe no modelo de usuário padrão
             if User.objects.filter(username=username).exists():
                 error_message = 'O nome de usuário já está em uso.'
                 return render(request, 'admin_dashboard.html', {'form': form, 'error_message': error_message})
 
             # Cadastrar o novo usuário usando o gerenciador de autenticação padrão
-            user = get_user_model().objects.create_user(username=username, password=password)
+            user = User.objects.create_user(username=username, password=password)
             user.save()
 
             success_message = 'Usuário cadastrado com sucesso!'
@@ -81,7 +80,7 @@ def admin_dashboard(request):
         # Se não for uma solicitação de POST, exiba a página de administração com o formulário de cadastro de usuário vazio
         form = UserForm()
 
-    # Obtenha a lista de pessoas cadastradas
+    # Obtenha a lista de pessoas cadastradas do modelo de usuário padrão
     users = User.objects.all()
 
     return render(request, 'admin_dashboard.html', {'form': form, 'users': users})

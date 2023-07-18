@@ -1,32 +1,42 @@
-<h1>Bem-vindo, {{ user.username }}!</h1>
-<a href="{% url 'logout' %}">Sair</a>
-<br><br>
-<form method="POST" action="{% url 'home' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Adicionar</button>
-</form>
-<br>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Quantidade</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in items %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bem-vindo, {{ user.username }}!</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Bem-vindo, {{ user.username }}!</h1>
+    <a href="{% url 'logout' %}">Sair</a>
+    <br><br>
+    <form method="POST" action="{% url 'home' %}" class="home-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar</button>
+    </form>
+    <br>
+    <table class="table">
+        <thead>
             <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.description }}</td>
-                <td>{{ item.quantidade }}</td>
-                <td>
-                    <a href="{% url 'update_item' item.id %}">Atualizar</a>
-                    <a href="{% url 'delete_item' item.id %}">Excluir</a>
-                </td>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>
+                        <a href="{% url 'update_item' item.id %}">Atualizar</a>
+                        <a href="{% url 'delete_item' item.id %}">Excluir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

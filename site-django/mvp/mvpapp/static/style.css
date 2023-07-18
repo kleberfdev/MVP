@@ -1,13 +1,90 @@
 /* Arquivo static/style.css */
+/* Arquivo static/style.css */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-}
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
 
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
+  /* Estilizando o formulário de adicionar item */
+.home-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-form label {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .home-form input[type="text"],
+  .home-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .home-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .home-form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form label {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
 
 .nav-tabs {
   margin-top: 30px;
@@ -30,40 +107,60 @@ h1 {
 
 /* Estilizando o formulário de cadastro de usuário */
 #cadastrar-usuario form {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#cadastrar-usuario form label {
-  font-weight: bold;
-}
-
-#cadastrar-usuario form input[type="text"],
-#cadastrar-usuario form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-#cadastrar-usuario form input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-#cadastrar-usuario form input[type="submit"]:hover {
-  background-color: #0056b3;
-}
+    max-width: 400px;
+    margin: 0;
+    margin-left: 20px; /* Adiciona um espaço à esquerda para afastar o formulário da borda da página */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #cadastrar-usuario form label {
+    font-weight: bold;
+    display: block;
+  }
+  
+  #cadastrar-usuario form input[type="text"],
+  #cadastrar-usuario form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  #cadastrar-usuario form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #cadastrar-usuario form input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  /* Estilizando a tabela de usuários */
+#cadastrar-usuario table {
+    width: 20%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #cadastrar-usuario th,
+  #cadastrar-usuario td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  #cadastrar-usuario th {
+    background-color: #f2f2f2;
+  }
+  
 
 /* Estilizando o formulário de criar novo pedido */
 #criar-pedido form {
@@ -89,13 +186,4 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Estilizando a lista de pessoas cadastradas */
-#mostrar-cadastrados ul {
-  list-style: none;
-  padding-left: 0;
-}
 
-#mostrar-cadastrados li {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
