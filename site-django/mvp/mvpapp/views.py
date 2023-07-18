@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 
+
 from .forms import UserForm, ItemForm
 from .models import User, Item
 
@@ -10,6 +11,11 @@ def login_view(request):
         password = request.POST['password']
         try:
             user = User.objects.get(username=username, password=password)
+
+            # Verificar se é o usuário admin
+            if username == 'admin' and password == 'admin':
+                return redirect('admin_dashboard')  # Redirecionar para a página de cadastro
+
             request.session['user_id'] = user.id
             return redirect('home')
         except User.DoesNotExist:
@@ -18,11 +24,26 @@ def login_view(request):
     return render(request, 'login.html')
 
 def register_view(request):
-    form = UserForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('login')
-    return render(request, 'register.html', {'form': form})
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+            # Verificar se o usuário já existe
+            if User.objects.filter(username=username).exists():
+                error_message = 'O nome de usuário já está em uso.'
+                return render(request, 'admin_dashboard.html', {'error_message': error_message})
+
+            # Cadastrar o novo usuário
+            user = User.objects.create(username=username, password=password)
+            user.save()
+
+            success_message = 'Usuário cadastrado com sucesso!'
+            return render(request, 'admin_dashboard.html', {'success_message': success_message})
+
+    # Se o formulário não for válido ou for uma solicitação GET, renderize a página de admin_dashboard.html
+    return render(request, 'admin_dashboard.html')
 
 def home_view(request):
     user_id = request.session.get('user_id')
@@ -57,3 +78,15 @@ def update_item(request, item_id):
 def logout_view(request):
     logout(request)
     return redirect('login')
+def admin_dashboard(request):
+    # Aqui você pode adicionar qualquer lógica específica que deseja para a página de administração
+    return render(request, 'admin_dashboard.html')
+
+def create_order_view(request):
+    # Implemente a lógica para criar um novo pedido aqui
+    return render(request, 'create_order.html')
+
+def show_users_view(request):
+    # Implemente a lógica para mostrar a lista de pessoas cadastradas aqui
+    users = User.objects.all()
+    return render(request, 'show_users.html', {'users': users})
