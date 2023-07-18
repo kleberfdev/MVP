@@ -2,14 +2,68 @@
 <html>
 <head>
     <title>Painel de Administração</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <h1>Painel de Administração</h1>
-    <ul>
-        <li><a href="{% url 'register' %}">Cadastrar Novo Usuário</a></li>
-        <li><a href="{% url 'create_order' %}">Criar Novo Pedido</a></li>
-        <li><a href="{% url 'show_users' %}">Mostrar Pessoas Cadastradas</a></li>
-        <!-- Adicione outras opções de administração aqui, se necessário -->
+
+    <!-- Abas de navegação -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="tab-cadastrar-usuario" data-toggle="tab" href="#cadastrar-usuario">Cadastrar Novo Usuário</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab-criar-pedido" data-toggle="tab" href="#criar-pedido">Criar Novo Pedido</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab-mostrar-cadastrados" data-toggle="tab" href="#mostrar-cadastrados">Mostrar Pessoas Cadastradas</a>
+        </li>
+
+        <!-- Adicione outras abas aqui, se necessário -->
     </ul>
+
+    <!-- Conteúdo das abas -->
+    <div class="tab-content">
+        <!-- Conteúdo da aba "Cadastrar Novo Usuário" -->
+        <div id="cadastrar-usuario" class="tab-pane fade show active">
+            <h3>Cadastro de Usuário</h3>
+            <form method="post" action="{% url 'register' %}">  <!-- Corrigir a URL de ação para apontar para 'register' -->
+                {% csrf_token %}
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" name="username" required><br><br>
+        
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required><br><br>
+        
+                <input type="submit" value="Cadastrar">
+            </form>
+            {% if error_message %}
+                <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+            {% if success_message %}
+                <p style="color: green;">{{ success_message }}</p>
+            {% endif %}
+        </div>
+        </div>
+
+        <!-- Conteúdo da aba "Criar Novo Pedido" -->
+        <div id="criar-pedido" class="tab-pane fade">
+            <h3>Criar Novo Pedido</h3>
+            <!-- Conteúdo da funcionalidade "Criar Novo Pedido" aqui -->
+        </div>
+
+        <!-- Conteúdo da aba "Mostrar Pessoas Cadastradas" -->
+        <div id="mostrar-cadastrados" class="tab-pane fade">
+            <h3>Mostrar Pessoas Cadastradas</h3>
+            <!-- Conteúdo da funcionalidade "Mostrar Pessoas Cadastradas" aqui -->
+        </div>
+        <!-- Adicione conteúdo para outras abas aqui, se necessário -->
+    </div>
+
+    <a href="{% url 'logout' %}">Sair</a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
