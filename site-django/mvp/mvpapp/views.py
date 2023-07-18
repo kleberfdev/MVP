@@ -1,36 +1,51 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import get_user_model
+
+from .forms import UserForm, ItemForm
+from .models import Item
+
+User = get_user_model()
+
+# Restante das views...
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
 
 from .forms import UserForm, ItemForm
 from .models import User, Item
 
 def login_view(request):
+    print("Request Method:", request.method)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        try:
-            user = User.objects.get(username=username, password=password)
+        print(f"Username: {username}, Password: {password}")
+        user = authenticate(request, username=username, password=password)
 
-            # Verificar se é o usuário admin
-            if username == 'admin' and password == 'admin':
-                return redirect('admin_dashboard')  # Redirecionar para a página de cadastro
+        if user is not None and user.is_active:
+            print("User authenticated successfully.")  # Adicione esta linha para depurar
+            login(request, user)
 
-            request.session['user_id'] = user.id
+            if user.username == 'admin':
+                print("Redirecting to admin_dashboard.")  # Adicione esta linha para depurar
+                return redirect('admin_dashboard')
+
+            print("Redirecting to home.")  # Adicione esta linha para depurar
             return redirect('home')
-        except User.DoesNotExist:
-            error_message = 'Usuário ou senha inválidos.'
-            return render(request, 'login.html', {'error_message': error_message})
+
+        error_message = 'Usuário ou senha inválidos.'
+        return render(request, 'login.html', {'error_message': error_message})
+
     return render(request, 'login.html')
 
 
-
 def home_view(request):
-    user_id = request.session.get('user_id')
-    if not user_id:
-        return redirect('login')
-    user = User.objects.get(id=user_id)
+    user = request.user
     items = Item.objects.filter(user=user)
-    form = ItemForm(request.POST or None)  # Movido para cima
+    form = ItemForm(request.POST or None)
+
     if request.method == 'POST':
         form = ItemForm(request.POST)
         if form.is_valid():
@@ -38,6 +53,7 @@ def home_view(request):
             item.user = user
             item.save()
             return redirect('home')
+
     return render(request, 'home.html', {'user': user, 'items': items, 'form': form})
 
 
