@@ -1,8 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Painel de Administração</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
     <h1>Painel de Administração</h1>
@@ -43,6 +45,12 @@
             {% if success_message %}
                 <p style="color: green;">{{ success_message }}</p>
             {% endif %}
+            <h3>Mostrar Pessoas Cadastradas</h3>
+                <ul>
+                    {% for user in users %}
+                        <li>{{ user.username }}</li>
+                    {% endfor %}
+                </ul>
         </div>
     
         <!-- Conteúdo da aba "Criar Novo Pedido" -->

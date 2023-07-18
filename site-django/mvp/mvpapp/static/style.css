@@ -1,0 +1,101 @@
+/* Arquivo static/style.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.nav-tabs {
+  margin-top: 30px;
+}
+
+/* Estilizando as abas de navegação */
+.nav-tabs .nav-item .nav-link {
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.tab-content {
+  margin-top: 30px;
+}
+
+/* Estilizando o formulário de cadastro de usuário */
+#cadastrar-usuario form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#cadastrar-usuario form label {
+  font-weight: bold;
+}
+
+#cadastrar-usuario form input[type="text"],
+#cadastrar-usuario form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#cadastrar-usuario form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#cadastrar-usuario form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilizando o formulário de criar novo pedido */
+#criar-pedido form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#criar-pedido form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#criar-pedido form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilizando a lista de pessoas cadastradas */
+#mostrar-cadastrados ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#mostrar-cadastrados li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
