@@ -10,6 +10,11 @@ def login_view(request):
         password = request.POST['password']
         try:
             user = User.objects.get(username=username, password=password)
+
+            # Verificar se é o usuário admin
+            if username == 'admin' and password == 'admin':
+                return redirect('admin_dashboard')  # Redirecionar para a página de cadastro
+
             request.session['user_id'] = user.id
             return redirect('home')
         except User.DoesNotExist:
@@ -57,3 +62,15 @@ def update_item(request, item_id):
 def logout_view(request):
     logout(request)
     return redirect('login')
+def admin_dashboard(request):
+    # Aqui você pode adicionar qualquer lógica específica que deseja para a página de administração
+    return render(request, 'admin_dashboard.html')
+
+def create_order_view(request):
+    # Implemente a lógica para criar um novo pedido aqui
+    return render(request, 'create_order.html')
+
+def show_users_view(request):
+    # Implemente a lógica para mostrar a lista de pessoas cadastradas aqui
+    users = User.objects.all()
+    return render(request, 'show_users.html', {'users': users})
