@@ -6,17 +6,19 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Login</h1>
+    <div class="clara">
     {% if error_message %}
         <p style="color: red;">{{ error_message }}</p>
     {% endif %}
-    <form class="login-form" method="post">
-        {% csrf_token %}
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username"><br><br>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Login">
+        <form class="login-form" method="post">
+            <h1>Almoxarifado</h1>
+            {% csrf_token %}
+            <label for="username"></label>
+            <input placeholder="Usuário" type="text" id="username" name="username"><br><br>
+            <label for="password"></label>
+            <input placeholder="Senha" type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Login" class="botao">
+        </div>
     </form>
 </body>
 </html>

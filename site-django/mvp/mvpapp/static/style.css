@@ -1,15 +1,36 @@
 /* Arquivo static/style.css */
 /* Arquivo static/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Bebas+Neue&family=Belanosima&family=Dancing+Script:wght@700&family=Poppins:wght@100;200;300;400;500;600;700&family=Rubik:wght@500&family=Titillium+Web:wght@600&family=Ubuntu:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #026E81;
   }
   
   h1 {
     text-align: center;
     margin-bottom: 30px;
+    font-family:"Titillium Web", sans-serif;
   }
-  
+  .clara {
+    color: white;
+  }
+  input {
+    outline: none;
+  }
+
+  #username:focus{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: black;
+    color: white;
+    transition: .5s;
+  }
+  #password:focus {
+    border: 2px solid rgb(255, 255, 255);
+    background-color: black;
+    color: white;
+    transition: .5s;
+  }
   /* Estilizando o formulário de adicionar item */
 .home-form {
   max-width: 400px;
@@ -37,7 +58,7 @@ body {
 .home-form button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #104478;
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -55,15 +76,17 @@ body {
 }
 
 .table {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,440px);
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
 }
 
 .table th,
 .table td {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   text-align: left;
 }
 
@@ -108,14 +131,16 @@ body {
   .home-form button[type="submit"]:hover {
     background-color: #0056b3;
   }
-  /*Login*/
+  /*Login inicial*/
   .login-form {
-    max-width: 400px;
+    box-shadow: -1px 1px 26px 0px black;
+    max-width: 450px;
+    padding: 70px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-image: linear-gradient(to right,#042326, #078da8);
+    padding-top: 30px;
   }
   
   .login-form label {
@@ -133,12 +158,12 @@ body {
   }
   
   .login-form input[type="submit"] {
-    width: 100%;
+    width: 200px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #134478;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
   }
   
@@ -153,20 +178,64 @@ body {
 
 /* Estilizando as abas de navegação */
 .nav-tabs .nav-item .nav-link {
-  color: #333;
+  color: #ffffff;
   font-weight: bold;
+  background-color: black;
 }
 
 .nav-tabs .nav-item .nav-link.active {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
+  transition: 1s;
 }
 
 .tab-content {
   margin-top: 30px;
 }
+.cdsuser {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
 
 /* Estilizando o formulário de cadastro de usuário */
+.formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 250px;
+  padding-top: 50px;
+  padding: 2px;
+}
+
+table {
+  color: black;
+  background-color: #ffffff;
+}
+
+
+.sair {
+  color: rgb(225, 255, 0);
+  background-color: #000000;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 15%;
+  right: 0px;
+}
+.sair:hover {
+  color: red;
+  text-decoration: none;
+  transition: .5s;
+}
+
 #cadastrar-usuario form {
     max-width: 400px;
     margin: 0;
@@ -194,7 +263,7 @@ body {
   #cadastrar-usuario form input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -225,26 +294,64 @@ body {
 
 /* Estilizando o formulário de criar novo pedido */
 #criar-pedido form {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #criar-pedido form input[type="submit"] {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #2c4663;
   color: #fff;
   border: none;
-  border-radius: 3px;
+  border-radius: 15px;
   cursor: pointer;
 }
 
+#criar-pedido > h3 {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 #criar-pedido form input[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #00db37;
+  transition: .5s;
+}
+
+.adm {
+  color: white;
+  font-size: 40px;
+}
+.h1s{
+  color: white;
+}
+.sair2 {
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: yellow;
+}
+.sair2:hover {
+  color: red;
+  transition: .5s;
 }
 
 
+@media screen and (max-width:500px) {
+  .sair {
+    color: rgb(225, 255, 0);
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    top: 18%;
+    right: 0px;
+  }
+}

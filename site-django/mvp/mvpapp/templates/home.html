@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Bem-vindo, {{ user.username }}!</h1>
-    <a href="{% url 'logout' %}">Sair</a>
+    <h1 class="h1s">Bem-vindo, {{ user.username }}!</h1>
+    <a class="sair2" href="{% url 'logout' %}">Sair</a>
     <br><br>
     <form method="POST" action="{% url 'home' %}" class="home-form">
         {% csrf_token %}

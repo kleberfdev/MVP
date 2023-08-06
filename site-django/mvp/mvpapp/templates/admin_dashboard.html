@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Painel de Administração</h1>
+    <h1 class="adm">Painel de Administração</h1>
 
     <!-- Abas de navegação -->
     <ul class="nav nav-tabs">
@@ -26,18 +26,18 @@
     <div class="tab-content">
         <!-- Conteúdo da aba "Cadastrar Novo Usuário" -->
         <div id="cadastrar-usuario" class="tab-pane fade show active">
-            <h3>Cadastro de Usuário</h3>
+            <h3 class="cdsuser">Cadastro de Usuário</h3>
             <!-- Formulário de cadastro de usuário -->
-            <form method="post">
-                {% csrf_token %}
-                <label for="username">Nome de Usuário:</label>
-                <input type="text" id="username" name="username" required><br><br>
-        
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required><br><br>
-        
-                <input type="submit" value="Cadastrar">
-            </form>
+            <div class="formulario">
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="username">Nome de Usuário:</label>
+                    <input type="text" id="username" name="username" required><br><br>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <input type="submit" value="Cadastrar">
+                </form>
+            </div>
             {% if error_message %}
                 <p style="color: red;">{{ error_message }}</p>
             {% endif %}
@@ -46,17 +46,18 @@
             {% endif %}
         
             <!-- Usuários Cadastrados -->
-            <h3>Usuários Cadastrados</h3>
-            <table>
-                <tr>
-                    <th>Nome de Usuário</th>
-                </tr>
-                {% for user in users %}
+            <div class="cadastro">
+                <table>
                     <tr>
-                        <td>{{ user.username }}</td>
+                        <th>Nome de Usuário</th>
                     </tr>
-                {% endfor %}
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                    {% endfor %}
             </table>
+        </div>
         </div>
     
         <!-- Conteúdo da aba "Criar Novo Pedido" -->
@@ -74,7 +75,7 @@
     </div>
     
 
-    <a href="{% url 'logout' %}">Sair</a>
+    <a class="sair" href="{% url 'logout' %}">Sair</a>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
