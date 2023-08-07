@@ -155,7 +155,7 @@ input {
 /*Login inicial*/
 .login-form {
   box-shadow: -1px 1px 26px 0px black;
-  border: 2px solid rgb(183, 0, 255);
+  border: 1px solid rgb(0, 255, 102);
   max-width: 450px;
   padding: 70px;
   margin: 0 auto;
