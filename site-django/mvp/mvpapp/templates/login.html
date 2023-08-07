@@ -8,16 +8,18 @@
 <body>
     <div class="clara">
     {% if error_message %}
-        <p style="color: red;">{{ error_message }}</p>
+        <p class="erro" style="color: red;">{{ error_message }}</p>
     {% endif %}
         <form class="login-form" method="post">
-            <h1>Almoxarifado</h1>
+            <h1 class="amox">Almoxarifado</h1>
             {% csrf_token %}
-            <label for="username"></label>
-            <input placeholder="Usuário" type="text" id="username" name="username"><br><br>
-            <label for="password"></label>
-            <input placeholder="Senha" type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Login" class="botao">
+            <div class="largura">
+                <label for="username"></label>
+                <input placeholder="Usuário" type="text" id="username" name="username"><br><br>
+                <label for="password"></label>
+                <input placeholder="Senha" type="password" id="password" name="password"><br><br>
+                <input type="submit" value="Login" class="botao">
+            </div>
         </div>
     </form>
 </body>

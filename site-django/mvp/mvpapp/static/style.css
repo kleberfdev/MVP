@@ -3,35 +3,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Bebas+Neue&family=Belanosima&family=Dancing+Script:wght@700&family=Poppins:wght@100;200;300;400;500;600;700&family=Rubik:wght@500&family=Titillium+Web:wght@600&family=Ubuntu:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-family:"Titillium Web", sans-serif;
-  }
-  .clara {
-    color: white;
-  }
-  input {
-    outline: none;
-  }
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to right, #203e3c, rgb(19, 127, 130));
+}
 
-  #username:focus{
-    border: 2px solid rgb(255, 255, 255);
-    background-color: black;
-    color: white;
-    transition: .5s;
-  }
-  #password:focus {
-    border: 2px solid rgb(255, 255, 255);
-    background-color: black;
-    color: white;
-    transition: .5s;
-  }
-  /* Estilizando o formulário de adicionar item */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.clara {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+
+input {
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.largura {
+  width: 200px;
+}
+
+#username:focus {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: black;
+  color: white;
+  transition: .5s;
+}
+
+#password:focus {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: black;
+  color: white;
+  transition: .5s;
+}
+
+/* Estilizando o formulário de adicionar item */
 .home-form {
   max-width: 400px;
   margin: 0 auto;
@@ -79,7 +94,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,440px);
+  transform: translate(-50%, 440px);
   width: 100%;
 }
 
@@ -91,86 +106,99 @@ body {
 }
 
 .table th {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
-  /* Estilizando o formulário de adicionar item */
+/* Estilizando o formulário de adicionar item */
 .home-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .home-form label {
-    font-weight: bold;
-    display: block;
-  }
-  
-  .home-form input[type="text"],
-  .home-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .home-form button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .home-form button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  /*Login inicial*/
-  .login-form {
-    box-shadow: -1px 1px 26px 0px black;
-    max-width: 450px;
-    padding: 70px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    background-image: linear-gradient(to right,#042326, #078da8);
-    padding-top: 30px;
-  }
-  
-  .login-form label {
-    font-weight: bold;
-    display: block;
-  }
-  
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .login-form input[type="submit"] {
-    width: 200px;
-    padding: 10px;
-    background-color: #134478;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .login-form input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-form label {
+  font-weight: bold;
+  display: block;
+}
+
+.home-form input[type="text"],
+.home-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.home-form button[type="submit"] {
+  width: 200px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.home-form button[type="submit"]:hover {
+  background-color: #0056b3;
+  transition: .5s;
+}
+
+/*Login inicial*/
+.login-form {
+  box-shadow: -1px 1px 26px 0px black;
+  border: 2px solid rgb(183, 0, 255);
+  max-width: 450px;
+  padding: 70px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #007bff;
+  background-image: url(img/Privacy\ policy-rafiki.png);
+  background-position: center center;
+  padding-top: 30px;
+}
+
+.amox {
+  color: black;
+  font-size: 35px;
+}
+
+.login-form label {
+  font-weight: bold;
+  display: block;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-form input[type="submit"] {
+  width: 100px;
+  padding: 10px;
+  background-color: #134478;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
 
 .nav-tabs {
   margin-top: 30px;
@@ -192,6 +220,7 @@ body {
 .tab-content {
   margin-top: 30px;
 }
+
 .cdsuser {
   text-align: center;
   color: white;
@@ -230,6 +259,7 @@ table {
   top: 15%;
   right: 0px;
 }
+
 .sair:hover {
   color: red;
   text-decoration: none;
@@ -237,60 +267,62 @@ table {
 }
 
 #cadastrar-usuario form {
-    max-width: 400px;
-    margin: 0;
-    margin-left: 20px; /* Adiciona um espaço à esquerda para afastar o formulário da borda da página */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  #cadastrar-usuario form label {
-    font-weight: bold;
-    display: block;
-  }
-  
-  #cadastrar-usuario form input[type="text"],
-  #cadastrar-usuario form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  #cadastrar-usuario form input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  #cadastrar-usuario form input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  /* Estilizando a tabela de usuários */
+  max-width: 400px;
+  margin: 0;
+  margin-left: 20px;
+  /* Adiciona um espaço à esquerda para afastar o formulário da borda da página */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#cadastrar-usuario form label {
+  font-weight: bold;
+  display: block;
+}
+
+#cadastrar-usuario form input[type="text"],
+#cadastrar-usuario form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#cadastrar-usuario form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#cadastrar-usuario form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilizando a tabela de usuários */
 #cadastrar-usuario table {
-    width: 20%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  #cadastrar-usuario th,
-  #cadastrar-usuario td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-  }
-  
-  #cadastrar-usuario th {
-    background-color: #f2f2f2;
-  }
-  
+  width: 20%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#cadastrar-usuario th,
+#cadastrar-usuario td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+#cadastrar-usuario th {
+  background-color: #f2f2f2;
+}
+
 
 /* Estilizando o formulário de criar novo pedido */
 #criar-pedido form {
@@ -312,7 +344,14 @@ table {
   cursor: pointer;
 }
 
-#criar-pedido > h3 {
+#criar-pedido form input[type="submit"]:hover {
+  background-image: url(img/icons8-certo.gif);
+  background-repeat: no-repeat;
+  background-color: white;
+  color: black;
+}
+
+#criar-pedido>h3 {
   text-align: center;
   color: white;
   font-size: 25px;
@@ -320,7 +359,6 @@ table {
 }
 
 #criar-pedido form input[type="submit"]:hover {
-  background-color: #00db37;
   transition: .5s;
 }
 
@@ -328,9 +366,11 @@ table {
   color: white;
   font-size: 40px;
 }
-.h1s{
+
+.h1s {
   color: white;
 }
+
 .sair2 {
   background-color: black;
   padding: 10px;
@@ -338,11 +378,22 @@ table {
   text-decoration: none;
   color: yellow;
 }
+
 .sair2:hover {
   color: red;
   transition: .5s;
 }
 
+.erro {
+  background-color: black;
+  padding: 5px;
+  border-radius: 10px;
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .5s;
+}
 
 @media screen and (max-width:500px) {
   .sair {
