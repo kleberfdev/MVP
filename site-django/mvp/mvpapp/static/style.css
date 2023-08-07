@@ -168,7 +168,9 @@ input {
 
 .amox {
   color: black;
-  font-size: 35px;
+  font-size: 39px;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
 .login-form label {
